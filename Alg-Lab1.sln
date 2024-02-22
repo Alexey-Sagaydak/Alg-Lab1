@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34607.119
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Alg-Lab1-Array", "Alg-Lab1\Alg-Lab1.vcxproj", "{73B1C55D-4E19-4089-BA85-C3239B1A7694}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Alg-Lab1-Stack", "Alg-Lab1\Alg-Lab1.vcxproj", "{73B1C55D-4E19-4089-BA85-C3239B1A7694}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Alg-Lab1-Queue", "Alg-Lab1-Queue\Alg-Lab1-Queue.vcxproj", "{CDBBF074-6350-4857-AB27-88DBB3F3C7E3}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Alg-Lab1-Char-Array", "Alg-Lab1-Char-Array\Alg-Lab1-Char-Array.vcxproj", "{55A44C94-7B91-455D-92F9-45A7A1D1F6B0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,6 +33,14 @@ Global
 		{CDBBF074-6350-4857-AB27-88DBB3F3C7E3}.Release|x64.Build.0 = Release|x64
 		{CDBBF074-6350-4857-AB27-88DBB3F3C7E3}.Release|x86.ActiveCfg = Release|Win32
 		{CDBBF074-6350-4857-AB27-88DBB3F3C7E3}.Release|x86.Build.0 = Release|Win32
+		{55A44C94-7B91-455D-92F9-45A7A1D1F6B0}.Debug|x64.ActiveCfg = Debug|x64
+		{55A44C94-7B91-455D-92F9-45A7A1D1F6B0}.Debug|x64.Build.0 = Debug|x64
+		{55A44C94-7B91-455D-92F9-45A7A1D1F6B0}.Debug|x86.ActiveCfg = Debug|Win32
+		{55A44C94-7B91-455D-92F9-45A7A1D1F6B0}.Debug|x86.Build.0 = Debug|Win32
+		{55A44C94-7B91-455D-92F9-45A7A1D1F6B0}.Release|x64.ActiveCfg = Release|x64
+		{55A44C94-7B91-455D-92F9-45A7A1D1F6B0}.Release|x64.Build.0 = Release|x64
+		{55A44C94-7B91-455D-92F9-45A7A1D1F6B0}.Release|x86.ActiveCfg = Release|Win32
+		{55A44C94-7B91-455D-92F9-45A7A1D1F6B0}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -10,117 +10,119 @@ int arrayCapacity = INITIAL_CAPACITY; // Емкость массива
 int arrayTop = -1; // Индекс вершины стека на массиве
 
 struct Node {
-    int data;
-    Node* next;
+	int data;
+	Node* next;
 
-    Node(int val) : data(val), next(nullptr) {}
+	Node(int val) : data(val), next(nullptr) {}
 };
 
 Node* listTop = nullptr; // Указатель на вершину стека на списке
 
 bool arrayIsEmpty() {
-    return arrayTop == -1;
+	return arrayTop == -1;
 }
 
 void arrayPush(int val) {
-    if (arrayTop == arrayCapacity - 1) {
-        arrayCapacity *= 2;
-        int* newArr = new int[arrayCapacity];
-        for (int i = 0; i <= arrayTop; ++i) {
-            newArr[i] = stackArray[i];
-        }
-        delete[] stackArray;
-        stackArray = newArr;
-    }
-    stackArray[++arrayTop] = val;
+	if (arrayTop == arrayCapacity - 1) {
+		arrayCapacity *= 2;
+		int* newArr = new int[arrayCapacity];
+		for (int i = 0; i <= arrayTop; ++i) {
+			newArr[i] = stackArray[i];
+		}
+		delete[] stackArray;
+		stackArray = newArr;
+	}
+	stackArray[++arrayTop] = val;
 }
 
 int arrayPop() {
-    if (arrayIsEmpty()) {
-        std::cout << "Стек пуст\n";
-        return -1;
-    }
-    return stackArray[arrayTop--];
+	if (arrayIsEmpty()) {
+		std::cout << "Стек пуст\n";
+		return -1;
+	}
+	return stackArray[arrayTop--];
 }
 
 bool listIsEmpty() {
-    return listTop == nullptr;
+	return listTop == nullptr;
 }
 
 void listPush(int val) {
-    Node* newNode = new Node(val);
-    newNode->next = listTop;
-    listTop = newNode;
+	Node* newNode = new Node(val);
+	newNode->next = listTop;
+	listTop = newNode;
 }
 
 int listPop() {
-    if (listIsEmpty()) {
-        std::cout << "Стек пуст\n";
-        return -1;
-    }
-    int data = listTop->data;
-    Node* temp = listTop;
-    listTop = listTop->next;
-    delete temp;
-    return data;
+	if (listIsEmpty()) {
+		std::cout << "Стек пуст\n";
+		return -1;
+	}
+	int data = listTop->data;
+	Node* temp = listTop;
+	listTop = listTop->next;
+	delete temp;
+	return data;
 }
 
 int main() {
-    setlocale(LC_ALL, "Rus");
+	setlocale(LC_ALL, "Rus");
 
-    stackArray = new int[arrayCapacity];
+	std::cout << "Реализация стека" << std::endl;
 
-    const int ELEMENTS_COUNT = 100000;
+	stackArray = new int[arrayCapacity];
 
-    auto startArrayPush = std::chrono::high_resolution_clock::now();
+	const int ELEMENTS_COUNT = 100000;
 
-    for (int i = 0; i < ELEMENTS_COUNT; ++i) {
-        arrayPush(rand() % 100);
-    }
+	auto startArrayPush = std::chrono::high_resolution_clock::now();
 
-    auto endArrayPush = std::chrono::high_resolution_clock::now();
+	for (int i = 0; i < ELEMENTS_COUNT; ++i) {
+		arrayPush(rand() % 100);
+	}
 
-    auto startArrayPop = std::chrono::high_resolution_clock::now();
+	auto endArrayPush = std::chrono::high_resolution_clock::now();
 
-    for (int i = 0; i < ELEMENTS_COUNT; ++i) {
-        arrayPop();
-    }
+	auto startArrayPop = std::chrono::high_resolution_clock::now();
 
-    auto endArrayPop = std::chrono::high_resolution_clock::now();
+	for (int i = 0; i < ELEMENTS_COUNT; ++i) {
+		arrayPop();
+	}
 
-    auto startListPush = std::chrono::high_resolution_clock::now();
+	auto endArrayPop = std::chrono::high_resolution_clock::now();
 
-    for (int i = 0; i < ELEMENTS_COUNT; ++i) {
-        listPush(rand() % 100);
-    }
+	auto startListPush = std::chrono::high_resolution_clock::now();
 
-    auto endListPush = std::chrono::high_resolution_clock::now();
+	for (int i = 0; i < ELEMENTS_COUNT; ++i) {
+		listPush(rand() % 100);
+	}
 
-    auto startListPop = std::chrono::high_resolution_clock::now();
+	auto endListPush = std::chrono::high_resolution_clock::now();
 
-    for (int i = 0; i < ELEMENTS_COUNT; ++i) {
-        listPop();
-    }
+	auto startListPop = std::chrono::high_resolution_clock::now();
 
-    auto endListPop = std::chrono::high_resolution_clock::now();
+	for (int i = 0; i < ELEMENTS_COUNT; ++i) {
+		listPop();
+	}
 
-    std::cout << "Время добавления элементов в массив: "
-        << std::chrono::duration_cast<std::chrono::microseconds>(endArrayPush - startArrayPush).count()
-        << " мкс" << std::endl;
+	auto endListPop = std::chrono::high_resolution_clock::now();
 
-    std::cout << "Время удаления элементов из массива: "
-        << std::chrono::duration_cast<std::chrono::microseconds>(endArrayPop - startArrayPop).count()
-        << " мкс" << std::endl;
+	std::cout << "Время добавления элементов в массив: "
+		<< std::chrono::duration_cast<std::chrono::microseconds>(endArrayPush - startArrayPush).count()
+		<< " мкс" << std::endl;
 
-    std::cout << "Время добавления элементов в список: "
-        << std::chrono::duration_cast<std::chrono::microseconds>(endListPush - startListPush).count()
-        << " мкс" << std::endl;
+	std::cout << "Время удаления элементов из массива: "
+		<< std::chrono::duration_cast<std::chrono::microseconds>(endArrayPop - startArrayPop).count()
+		<< " мкс" << std::endl;
 
-    std::cout << "Время удаления элементов из списка: "
-        << std::chrono::duration_cast<std::chrono::microseconds>(endListPop - startListPop).count()
-        << " мкс" << std::endl;
+	std::cout << "Время добавления элементов в список: "
+		<< std::chrono::duration_cast<std::chrono::microseconds>(endListPush - startListPush).count()
+		<< " мкс" << std::endl;
 
-    delete[] stackArray;
+	std::cout << "Время удаления элементов из списка: "
+		<< std::chrono::duration_cast<std::chrono::microseconds>(endListPop - startListPop).count()
+		<< " мкс" << std::endl;
 
-    return 0;
+	delete[] stackArray;
+
+	return 0;
 }
